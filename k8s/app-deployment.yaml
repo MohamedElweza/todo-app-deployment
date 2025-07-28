@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-app
+  namespace: todo-app
+  labels:
+    app: my-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app
+    spec:
+      containers:
+        - name: my-app
+          image: mohammedelweza/todo-app:latest
+          ports:
+            - containerPort: 4000
+          env:
+            - name: mongoDbUrl
+              value: "mongodb+srv://moahmed9899:ABu5pnbhQ7eJ1jWL@cluster0.nysnarj.mongodb.net/todo-app?retryWrites=true&w=majority"
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 4000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 4000
+            initialDelaySeconds: 15
+            periodSeconds: 20
+      imagePullSecrets:
+        - name: regcred
+
