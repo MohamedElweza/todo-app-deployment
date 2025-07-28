@@ -47,6 +47,10 @@ app.post('/register', (req, res) => {
     });
 });
 
+app.get('/health', (req, res) => {
+  res.status(200).send('OK');
+});
+
 // adding the task to the database
 app.post('/addtask', function(req,res){
     Dashboard.create({
