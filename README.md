@@ -1,4 +1,4 @@
-# 🛠️ DevOps Internship Assessment - Todo-List Node.js Deployment
+# 💻 DevOps Internship Assessment - Todo-List Node.js Deployment
 
 ## 📌 Project Overview
 
@@ -6,11 +6,11 @@ This repository documents the setup, automation, and deployment process for the 
 
 ---
 
-## ✅ Task Breakdown
+##  Task Breakdown
 
-### 🔹 Part 1: Dockerizing the Application and CI/CD via GitHub Actions
+###  Part 1: Dockerizing the Application and CI/CD via GitHub Actions
 
-#### 🔸 Steps Taken
+####  Steps Taken
 
 1. **Cloned the Repository**
 
@@ -67,9 +67,9 @@ This repository documents the setup, automation, and deployment process for the 
 
 ---
 
-### 🔹 Part 2: Provision Linux VM & Configure with Ansible
+###  Part 2: Provision Linux VM & Configure with Ansible
 
-#### 🔸 EC2 Setup on AWS
+####  EC2 Setup on AWS
 
 * **Instance Type**: t2.micro (Free tier)
 * **AMI**: Amazon Linux 2
@@ -79,7 +79,7 @@ This repository documents the setup, automation, and deployment process for the 
   * Port 8080 — Anywhere (for app access)
   * Port 80, 443 — Anywhere (for Watchtower/K8s/ArgoCD later)
 
-#### 🔸 Ansible Configuration
+####  Ansible Configuration
 
 1. **Inventory File**
 
@@ -121,9 +121,9 @@ This repository documents the setup, automation, and deployment process for the 
 
 ---
 
-### 🔹 Part 3: Docker Compose + Auto Image Update
+###  Part 3: Docker Compose + Auto Image Update
 
-#### 🔸 Docker Compose File
+####  Docker Compose File
 
 ```yaml
 version: '3'
@@ -146,14 +146,14 @@ services:
     command: --interval 60
 ```
 
-> 🔁 **Auto Update Tool**: `Watchtower`
+>  **Auto Update Tool**: `Watchtower`
 > Justification: Watchtower is lightweight, easy to configure, and designed to monitor Docker Hub for new image versions. It automatically pulls the latest image and redeploys the container without downtime.
 
 ---
 
-### 🔹 Part 4 (Bonus): Kubernetes with ArgoCD
+###  Part 4 (Bonus): Kubernetes with ArgoCD
 
-#### 🔸 Kubernetes Setup via Kubeadm (on EC2)
+####  Kubernetes Setup via Kubeadm (on EC2)
 
 1. **Install K8s components via Ansible**
 
@@ -178,7 +178,7 @@ services:
    kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
    ```
 
-#### 🔸 Deploy ArgoCD
+####  Deploy ArgoCD
 
 1. **Install ArgoCD**
 
